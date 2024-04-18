@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.programmingtechnologytest.HelloController">
+    <HBox spacing="10">
+        <Label text="Point B:" />
+        <TextField promptText="X" fx:id="xBField" />
+        <TextField fx:id="yBField" promptText="Y" />
+        <TextField fx:id="colorBField" promptText="Color" />
+        <TextField fx:id="symbolBField" promptText="Symbol" />
+        <Button onAction="#createPointB" text="Create B" />
+        <Button onAction="#movePointB" text="Move B" />
+        <Button onAction="#deletePointB" text="Delete B" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Point D:" />
+        <TextField promptText="X" fx:id="xDField" />
+        <TextField fx:id="yDField" promptText="Y" />
+        <TextField fx:id="colorDField" promptText="Color" />
+        <TextField fx:id="symbolDField" promptText="Symbol" />
+        <Button onAction="#createPointD" text="Create D" />
+        <Button onAction="#movePointD" text="Move D" />
+      <Button mnemonicParsing="false" onAction="#updateColorPointD" text="copyColor" />
+    </HBox>
+
+    <Label fx:id="outputLabel" />
+</VBox>
