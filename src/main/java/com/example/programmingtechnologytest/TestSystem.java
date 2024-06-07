@@ -56,17 +56,31 @@ public class TestSystem {
 
         // Удаление
         points.removeIf(point -> point.getName().equals("Test7") || point.getName().equals("Test8"));
+
+        // Вывод результатов тестов
+        for (MPoint point : points) {
+            System.out.println(point);
+        }
     }
 
     public static void check(String[][] tests) {
         for (String[] test : tests) {
-            MPoint point = new MPoint(test[0], Double.parseDouble(test[1]), Double.parseDouble(test[2]),
+            MPoint expectedPoint = new MPoint(test[0], Double.parseDouble(test[1]) + 10, Double.parseDouble(test[2]) + 10,
+                    Color.PINK, test[4].charAt(0));
+
+            MPoint actualPoint = new MPoint(test[0], Double.parseDouble(test[1]), Double.parseDouble(test[2]),
                     Color.web(test[3]), test[4].charAt(0));
 
-            if (point != null) {
+            if (expectedPoint.getName().equals(actualPoint.getName()) &&
+                    expectedPoint.getX() == actualPoint.getX() + 10 &&
+                    expectedPoint.getY() == actualPoint.getY() + 10 &&
+                    expectedPoint.getColor().equals(Color.PINK) &&
+                    expectedPoint.getSymbol() == actualPoint.getSymbol()) {
                 System.out.println("Test PASSED: " + test[0]);
             } else {
                 System.out.println("Test FAILED: " + test[0]);
+                System.out.println("Expected: " + expectedPoint);
+                System.out.println("Actual: " + actualPoint);
             }
         }
     }
